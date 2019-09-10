@@ -1,5 +1,13 @@
 # PyLab 2: Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging
 
+Follow me on Twitter [@dglover](https://twitter.com/dglover)
+
+![banner](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/python-loves-vscode-raspberrypi-docker.png)
+
+## PDF Lab Guide
+
+You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf) hands-on lab guide.
+
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |----|---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
@@ -10,11 +18,9 @@
 |Language| Python|
 |Date|As of August, 2019|
 
-Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
-## PDF Lab Guide
 
-You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf) hands-on lab guide.
+
 
 ## Introduction
 
