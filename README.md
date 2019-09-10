@@ -231,7 +231,7 @@ You will be prompted for:
 5. From the **Explorer** bar, open the **app** folder, then the **app<span>.py** file and review the contents
     <br/>
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-app-py.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-app-py.png)
 
 <br/>
 
