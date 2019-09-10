@@ -211,8 +211,7 @@ You will be prompted for:
 
 ![](resources/docker_logo.png)
 
-## Open the Lab2 Docker Debug Project
-
+## Open the PyLab 2 Docker Debug Project
 
 1. From Visual Studio Code main menu: **File** > **Open Folder**
 2. Select the **PyLab** directory
