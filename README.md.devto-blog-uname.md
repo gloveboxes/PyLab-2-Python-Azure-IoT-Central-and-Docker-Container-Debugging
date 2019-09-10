@@ -1,10 +1,10 @@
-# PyLab 2: Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging
+# PyLab 2: Python, Azure IoT Central, and Docker Container Debugging
 
-|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
+|Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=devto-blog-uname), Microsoft Cloud Developer Advocate |
 |----|---|
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
-|Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=pycon-blog-dglover) |
-|Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=pycon-blog-dglover)|
+|Services | [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/?WT.mc_id=devto-blog-uname) |
+|Tools| [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders?WT.mc_id=devto-blog-uname)|
 |Hardware | [Raspberry Pi 4. 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) model required for 20 Users. Raspberry Pi [Sense HAT](https://www.raspberrypi.org/products/sense-hat/), Optional: Raspberry Pi [case](https://shop.pimoroni.com/products/pibow-coupe-4?variant=29210100138067), [active cooling fan](https://shop.pimoroni.com/products/fan-shim)
 |**USB3 SSD Drive**| To support up to 20 users per Raspberry Pi you need a **fast** USB3 SSD Drive to run Raspbian Buster Linux on. A 120 USB3 SSD drive will be more than sufficient. These are readily available from online stores.
 |Language| Python|
@@ -18,11 +18,16 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 
 ## Introduction
 
-In this hands-on lab, you will learn how to create a Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
+In this hands-on lab, you will learn how to create a Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=devto-blog-uname). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi4-pi-sense-hat.jpg)
 
+## References
 
+- [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=devto-blog-uname)
+- [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central?WT.mc_id=devto-blog-uname)
+- [Installing Docker on Raspberry Pi Buster](https://dev.to/azure/azure-iot-edge-on-raspberry-pi-buster-plus-tips-for-raspberry-pi-4-22nn)
+- [Understanding Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=358s)
 
 <!-- ## CircuitPython
 
@@ -44,101 +49,72 @@ pip3 install adafruit-blinka adafruit-circuitpython-bme280
 
 ![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/setup.jpg)
 
-This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on [GitHub](https://github.com/microsoft/vscode). It runs on Linux, macOS, and Windows.
+This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It runs on Linux, macOS, and Windows.
 
-### Install Visual Studio Code
+Install:
 
-1. **Install [Visual Studio Code](https://code.visualstudio.com/Download?WT.mc_id=pycon-blog-dglover)**
+1. [Visual Studio Code Insiders Edition](https://code.visualstudio.com/insiders/?WT.mc_id=devto-blog-uname)
 
-#### Visual Studio Code Extensions
+    As at August 2019, **Visual Studio Code Insiders Edition** is required as it has early support for Raspberry Pi and Remote Development over SSH.
 
-The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow.
+2. [Remote - SSH Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=devto-blog-uname)
+3. [Docker Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker&WT.mc_id=devto-blog-uname)
 
-#### Browse for extensions
+For information on contributing or submitting issues see the [Visual Studio GitHub Repository](https://github.com/microsoft/vscode). Visual Studio Code documentation is also Open Source, and you can contribute or submit issues from the [Visual Studio Documentation GitHub Repository](https://github.com/microsoft/vscode-docs).
 
-You can search and install extensions from within Visual Studio Code. Open the Extensions view from the Visual Studio Code main menu, select **View** > **Extensions** or by clicking on the Extensions icon in the **Activity Bar** on the side of Visual Studio Code.
+## Remote Development using SSH
 
-![Extensions view icon](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/extensions-view-icon.png)
+The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of Visual Studio Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode?WT.mc_id=pycon-blog-dglover).
+No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
 
-<!-- ![popular extensions](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/extensions-popular.png) -->
-
-![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-install-extension.png)
-
-### Install the Python and Remote SSH Extensions
-
-Search and install the following two Visual Studio Code Extensions published by Microsoft.
-
-1. **[Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover)**
-2. **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&WT.mc_id=pycon-blog-dglover)**
-3. **[Docker Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker&WT.mc_id=pycon-blog-dglover)**
-
-## Remote SSH Development
-
-The Visual Studio Code Remote - SSH extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of Visual Studio Code.
-
-![Architecture Diagram](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/architecture-ssh.png)
+![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/architecture-ssh.png)
 
 ## Raspberry Pi Hardware
 
-You need the following information:
+If you are attending a workshop, then you can use a shared network-connected Raspberry Pi. You will need the following information from the lab instructor.
 
-1. The **Network Address** of the Raspberry Pi
-2. Your Raspberry Pi **login name** and **password**.
+1. The **Network IP Address** of the Raspberry Pi
+2. Your assigned **login name** and **password**.
 
 ## SSH Authentication with private/public keys
 
-![ssh login](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/ssh-login.jpg)
+![ssh login](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab1-ssh-debug/resources/ssh-login.jpg)
 
-Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is recommended for this hands-on lab.
+Setting up a public/private key pair for [SSH](https://en.wikipedia.org/wiki/Secure_Shell) authentication is a secure and fast way to authenticate from your computer to the Raspberry Pi. This is needed for this hands-on lab.
 
-### SSH Set up for Windows Users
+### SSH for Linux and macOS
 
-The SSH utility guides you through the process of setting up a secure SSH channel for Visual Studio Code and the Raspberry Pi.
+From a Linux or macOS **Terminal Console** run the following commands:
 
-You will be prompted for:
-
-- The Raspberry Pi Network IP Address,
-- The Raspberry Pi login name and password
-
-1. From **Windows File Explorer**, open **f<span>tp://\<Raspberry Pi Address>**
-
-    <br>
-
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/windows-file-manager-address-bar.png)
-
-    <br>
-
-2. Copy the **scripts** directory to your **desktop**
-
-    <br>
-
-    ![Windows File Manager](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/windows-file-manager.png)
-
-    <br>
-
-3. Open the **scripts** folder you copied to your **desktop**
-4. Double click the **windows-setup-ssh.cmd**
-
-### SSH Set up for Linux and macOS Users
-
-The SSH utility guides you through the process of setting up a secure SSH channel for Visual Studio Code and the Raspberry Pi
-
-You will be prompted for:
-
-- The Raspberry Pi Network IP Address,
-- The Raspberry Pi login name and password
-
-1. Open a Terminal window
-2. Copy and paste the following command, and press **ENTER**
+1. Create your key. This is typically a one-time operation. **Take the default options**.
 
     ```bash
-    read -p "Enter the Raspberry Pi Address: " pyurl && \
-    curl ftp://$pyurl/scripts/ssh-setup.sh | bash
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_python_lab
     ```
 
-<!--
+2. Copy the public key to the Raspberry Pi.
+
+    ```bash
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
+    ```
+
+    For example:
+
+    ```bash
+    ssh-copy-id -i ~/.ssh/id_rsa_python_lab dev99@192.168.1.200
+    ```
+
+3. Test the SSH Authentication Key
+
+    ```bash
+    ssh -i ~/.ssh/id_rsa_python_lab <login@Raspberry IP Address>
+    ```
+
+    A new SSH session will start. You should now be connected to the Raspberry Pi **without** being prompted for the password.
+
+4. Close the SSH session. In the SSH terminal, type exit, followed by ENTER.
+
 ### SSH for Windows 10 (1809+) Users with PowerShell
 
 1. Start PowerShell as Administrator and install OpenSSH.Client
@@ -175,29 +151,40 @@ You will be prompted for:
 
 ### SSH for earlier versions of Windows
 
-[SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/resources/windows-ssh.md)
+- [SSH for earlier versions of Windows](https://github.com/gloveboxes/PyCon-Hands-on-Lab/blob/master/Lab2-docker-debug/resources/windows-ssh.md)
 
--->
+### Trouble Shooting SSH Client Installation
 
-## Start a Remote SSH Connection
+- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh?WT.mc_id=devto-blog-uname)
+- [Installing a supported SSH client](https://code.visualstudio.com/docs/remote/troubleshooting?WT.mc_id=devto-blog-uname)
 
-1. **Start Visual Studio Code**
-2. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
+## Configure Visual Studio Code Remote SSH Development
 
-3. Select the **pylab-devnn** configuration
+1. Start Visual Studio Code Insiders Edition
 
-    <br>
+2. Press F1 to open the Command Palette, type **ssh config** and select **Remote-SSH: Open Configuration**
+
+3. Select the user .ssh config file
+
+    ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-config-file.png)
+
+4. Set the SSH connection configuration as follows:
+
+    - **Host**: Set to **RaspberryPi**
+    - **HostName**: The Raspberry Pi **IP Address**
+    - **User**: Your **login name**
+    - **IdentityFile**: Set to **~/.ssh/id_rsa_python_lab**.
+    - Save these changes (Ctrl+S).
+
+    ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-config-host-details.png)
+
+5. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
+
+6. Select the host **RaspberryPi** configuration
 
     ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-ssh-connection.png)
 
-    <br>
-4. Check the Remote SSH has connected. 
-
-    It will take a moment to connect, then the SSH Status in the bottom left hand corner of Visual Studio Code will change to **>< SSH:pylab-devnn**.  Where devnn is your Raspberry Pi Login in name.
-
-    <br>
-
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-remote-ssh-connected.png)
+    It will take a moment to connect to the Raspberry Pi.
 
 <!-- ## Install the Python Visual Studio Code Extension
 
@@ -209,7 +196,7 @@ Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and 
 ext install ms-python.python
 ```
 
-See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension. -->
+See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=devto-blog-uname) page for information about using the extension. -->
 
 ## Introduction to Docker
 
@@ -233,7 +220,7 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 ## Create a New IoT Central Application
 
-1. Open the [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central/?WT.mc_id=pycon-blog-dglover) in a new browser tab, then click **Getting started**.
+1. Open the [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central/?WT.mc_id=devto-blog-uname) in a new browser tab, then click **Getting started**.
 
 2. Next, you will need to sign with your **Microsoft** Personal, or Work, or School account. If you do not have a Microsoft account, then you can create one for free using the **Create one!** link.
 
@@ -504,7 +491,7 @@ The top menu appears on every page:
 - To search for device templates and devices, enter a **Search** value.
 - To change the UI language or theme, choose the **Settings** icon.
 - To sign out of the application, choose the **Account** icon.
-- To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](https://docs.microsoft.com/en-us/azure/iot-central/howto-show-hide-chat?WT.mc_id=pycon-blog-dglover).
+- To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](https://docs.microsoft.com/en-us/azure/iot-central/howto-show-hide-chat?WT.mc_id=devto-blog-uname).
 
 You can choose between a light theme or a dark theme for the UI:
 
@@ -514,7 +501,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Dashboard](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/homepage.png)
 
-The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-customize-operator?WT.mc_id=pycon-blog-dglover) tutorial. Users can also [create their own personal dashboards](https://docs.microsoft.com/en-us/azure/iot-central/howto-personalize-dashboard?WT.mc_id=pycon-blog-dglover).
+The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-customize-operator?WT.mc_id=devto-blog-uname) tutorial. Users can also [create their own personal dashboards](https://docs.microsoft.com/en-us/azure/iot-central/howto-personalize-dashboard?WT.mc_id=devto-blog-uname).
 
 #### Device explorer
 
@@ -522,49 +509,41 @@ The dashboard is the first page you see when you sign in to your Azure IoT Centr
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_.
 
-* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=pycon-blog-dglover).
-* A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device?WT.mc_id=pycon-blog-dglover).
+* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=devto-blog-uname).
+* A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device?WT.mc_id=devto-blog-uname).
 
 #### Device sets
 
 ![Device Sets page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/devicesets.png)
 
-The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-use-device-sets?WT.mc_id=pycon-blog-dglover) article.
+The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-use-device-sets?WT.mc_id=devto-blog-uname) article.
 
 #### Device Templates
 
 ![Device Templates page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/templates.png)
 
-The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=pycon-blog-dglover) tutorial.
+The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=devto-blog-uname) tutorial.
 
 #### Analytics
 
 ![Analytics page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/analytics.png)
 
-The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-use-device-sets?WT.mc_id=pycon-blog-dglover) article.
+The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-use-device-sets?WT.mc_id=devto-blog-uname) article.
 
 #### Jobs
 
 ![Jobs page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/jobs.png)
 
-The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](https://docs.microsoft.com/en-us/azure/iot-central/howto-run-a-job?WT.mc_id=pycon-blog-dglover) article.
+The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](https://docs.microsoft.com/en-us/azure/iot-central/howto-run-a-job?WT.mc_id=devto-blog-uname) article.
 
 #### Continuous Data Export
 
 ![Continuous Data Export page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/export.png)
 
-The continuous data export page is where an administrator defines how to export data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/howto-export-data?WT.mc_id=pycon-blog-dglover) article.
+The continuous data export page is where an administrator defines how to export data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/howto-export-data?WT.mc_id=devto-blog-uname) article.
 
 #### Administration
 
 ![Administration page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/administration.png)
 
-The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-administer?WT.mc_id=pycon-blog-dglover) article.
-
-
-## References
-
-- [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover)
-- [Azure IoT Central](https://azure.microsoft.com/en-au/services/iot-central?WT.mc_id=pycon-blog-dglover)
-- [Installing Docker on Raspberry Pi Buster](https://dev.to/azure/azure-iot-edge-on-raspberry-pi-buster-plus-tips-for-raspberry-pi-4-22nn)
-- [Understanding Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=358s)
+The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-administer?WT.mc_id=devto-blog-uname) article.
