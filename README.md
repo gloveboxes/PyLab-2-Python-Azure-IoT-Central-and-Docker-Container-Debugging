@@ -8,9 +8,14 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf) hands-on lab guide.
 
+## PyLab Content
+
+- [PyLab 1: Raspberry Pi, Debugging a Python Internet of Things Application](https://gloveboxes.github.io/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/)
+- [PyLab 2: Raspberry Pi, Azure IoT Central, and Docker Container Debugging](https://gloveboxes.github.io/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/)
+
 ## PyLab Set Up
 
-- [Multi-User Set Up (Max 20 Users per Raspberry Pi 4 4GB)](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-multiuser/README.md)
+- [Multi-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-multiuser/README.md)
 - [Single-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-singleuser/README.md)
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
