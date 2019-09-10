@@ -72,7 +72,7 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 ![vs code install extension](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-install-extension.png)
 
-### Install the Python and Remote SSH Extensions
+### Install the Python, Remote SSH, and Docker Extensions
 
 Search and install the following two Visual Studio Code Extensions published by Microsoft.
 
