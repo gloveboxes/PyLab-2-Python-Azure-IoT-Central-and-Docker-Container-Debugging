@@ -10,8 +10,8 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 
 ## PyLab Set Up
 
-- [Multi User Set Up (Max 20 Users per Raspberry Pi 4 4GB)](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-multiuser/README.md)
-- [Single User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-singleuser/README.md)
+- [Multi-User Set Up (Max 20 Users per Raspberry Pi 4 4GB)](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-multiuser/README.md)
+- [Single-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-singleuser/README.md)
 
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |:--- |:--- |
@@ -199,7 +199,7 @@ You will be prompted for:
     <br>
 4. Check the Remote SSH has connected. 
 
-    It will take a moment to connect, then the SSH Status in the bottom left hand corner of Visual Studio Code will change to **>< SSH:pylab-devnn**.  Where devnn is your Raspberry Pi Login in name.
+    It will take a moment to connect, then the SSH Status in the bottom lefthand corner of Visual Studio Code will change to **>< SSH:pylab-devnn**.  Where devnn is your Raspberry Pi Login name.
 
     <br>
 
@@ -213,11 +213,28 @@ You will be prompted for:
 
 ## Open the Lab2 Docker Debug Project
 
-From **Visual Studio Code**, select **File** from the main menu, then **Open Folder**. Navigate to and open the **PyLab/lab2-docker-debug** folder.
 
-1. From VS Code: File -> Open Folder, navigate to **PyLab/lab2-docker-debug**.
-2. Expand the App folder and open the app.py file.
-3. If you are prompted to select a Python Interpreter then select Python 3.7
+1. From Visual Studio Code main menu: **File** > **Open Folder**
+2. Select the **PyLab** directory
+    <br/>
+
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-folder-PyCon.png)
+
+    <br/>
+3. Next select, the **PyLab-1-Python-Debug** directory
+    <br/>
+
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-folder-Lab.png)
+
+    <br/>
+4. Click **OK** to Open the directory
+5. From the **Explorer** bar, open the **app<span>.py** file and review the contents
+    <br/>
+
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-appy-py.png)
+
+<br/>
+
 
 ## Creating an Azure IoT Central Application
 
