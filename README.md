@@ -221,17 +221,17 @@ You will be prompted for:
     ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-folder-PyCon.png)
 
     <br/>
-3. Next select, the **PyLab-1-Python-Debug** directory
+3. Next select, the **PyLab-2-Docker-Debug/** directory
     <br/>
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-folder-Lab.png)
 
     <br/>
 4. Click **OK** to Open the directory
-5. From the **Explorer** bar, open the **app<span>.py** file and review the contents
+5. From the **Explorer** bar, open the **app** folder, then the **app<span>.py** file and review the contents
     <br/>
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-appy-py.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/master/resources/vs-code-open-app-py.png)
 
 <br/>
 
