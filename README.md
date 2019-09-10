@@ -199,18 +199,6 @@ You will be prompted for:
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-remote-ssh-connected.png)
 
-<!-- ## Install the Python Visual Studio Code Extension
-
-![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-install-python.png)
-
-Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and press enter:
-
-```bash
-ext install ms-python.python
-```
-
-See the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=pycon-blog-dglover) page for information about using the extension. -->
-
 ## Introduction to Docker
 
 [Jake Wright's Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24&t=364s) is a great introduction to Docker.
