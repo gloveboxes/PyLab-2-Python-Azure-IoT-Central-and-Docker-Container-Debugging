@@ -20,7 +20,7 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 
 In this hands-on lab, you will learn how to create a Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/rpi4-pi-sense-hat.jpg)
+![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi4-pi-sense-hat.jpg)
 
 ## References
 
@@ -47,7 +47,7 @@ pip3 install adafruit-blinka adafruit-circuitpython-bme280
 
 ## Software Installation
 
-![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/setup.jpg)
+![set up requirements](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/setup.jpg)
 
 This hands-on lab uses Visual Studio Code. Visual Studio Code is a code editor and is one of the most popular **Open Source** projects on GitHub. It runs on Linux, macOS, and Windows.
 
@@ -68,7 +68,7 @@ The Visual Studio Code Remote - SSH extension allows you to open a remote folder
 
 No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/architecture-ssh.png)
+![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/architecture-ssh.png)
 
 ## Raspberry Pi Hardware
 
@@ -166,7 +166,7 @@ From a Linux or macOS **Terminal Console** run the following commands:
 
 3. Select the user .ssh config file
 
-    ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-config-file.png)
+    ![select the user .ssh file](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-config-file.png)
 
 4. Set the SSH connection configuration as follows:
 
@@ -176,19 +176,19 @@ From a Linux or macOS **Terminal Console** run the following commands:
     - **IdentityFile**: Set to **~/.ssh/id_rsa_python_lab**.
     - Save these changes (Ctrl+S).
 
-    ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-config-host-details.png)
+    ![configure host details](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-config-host-details.png)
 
 5. Press **F1** to open the Command Palette, type **ssh connect** and select **Remote-SSH: Connect to Host**
 
 6. Select the host **RaspberryPi** configuration
 
-    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-open-ssh-connection.png)
+    ![open the ssh project](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-ssh-connection.png)
 
     It will take a moment to connect to the Raspberry Pi.
 
 <!-- ## Install the Python Visual Studio Code Extension
 
-![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-install-python.png)
+![Python Extension](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-install-python.png)
 
 Launch Visual Studio Code Quick Open (Ctrl+P), paste the following command, and press enter:
 
@@ -216,7 +216,7 @@ From **Visual Studio Code**, select **File** from the main menu, then **Open Fol
 
 We are going to create an Azure IoT Central application, then a device, and finally a device **connection string** needed for the application that will run in the Docker container.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/azure_iot_central.png)
+![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/azure_iot_central.png)
 
 ## Create a New IoT Central Application
 
@@ -224,17 +224,17 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 2. Next, you will need to sign with your **Microsoft** Personal, or Work, or School account. If you do not have a Microsoft account, then you can create one for free using the **Create one!** link.
 
-    ![iot central](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-login.png)
+    ![iot central](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-login.png)
 
 3. Create a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
 4. Select **Trail**, **Custom application**, name your IoT Central application and complete the sign-up information.
 
-![Azure IoT Central Create Application page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-new-application.png)
+![Azure IoT Central Create Application page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-new-application.png)
 
 4. Click **Create Device Templates**, then select the **Custom** template, name your template, for example, **Raspberry**. Then click Create
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-welcome-dashboard.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-welcome-dashboard.png)
 
 5. Edit the Template, add **Measurements** for **Temperature**, **Humidity**, and **Pressure** telemetry.
 
@@ -245,7 +245,7 @@ We are going to create an Azure IoT Central application, then a device, and fina
     - **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having Operating and Stopped as the two possible states.
     - **Location** measurements are the longitude and latitude coordinates of the device over a period of time in. For example, a fan can be moved from one location to another.
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-new-telemetry.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-new-telemetry.png)
 
     Use the information in the following table to set up three telemetry measurements. The field name is case-sensitive.
 
@@ -259,7 +259,7 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
     The following is an example of setting up the **Temperature** telemetry measurement.
 
-    ![new measurement](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-create-new-telemetry.png)
+    ![new measurement](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-create-new-telemetry.png)
 
 6. Click **Device** on the sidebar menu, select the **Raspberry** template you created.
 
@@ -267,19 +267,19 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 7. Select **Real**.
 
-    ![create a real device](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-add-real-device.png)
+    ![create a real device](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-add-real-device.png)
 
     Name your **Device ID** so you can easily identify the device in the IoT Central portal, then click **Create**.
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-create-new-device.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-create-new-device.png)
 
 7. When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
 
-    ![connect device](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-connect-device.png)
+    ![connect device](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-connect-device.png)
 
     **Leave this page open as you will need this connection information for the next step in the hands-on lab.**
 
-    ![Device Connection](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-device-connection.png)
+    ![Device Connection](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-device-connection.png)
 
 ## Generate an Azure IoT Hub Connection String
 
@@ -287,7 +287,7 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
     Copy and paste the **Scope Id**, **Device Id**, and the **Primary Key** from the Azure IoT Central Device Connection panel to the Connection String Generator page and click **Get Connection String**.
 
-    ![connection string example](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-connection-string-generator-example.png)
+    ![connection string example](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-connection-string-generator-example.png)
 
 2. Copy the generated connection string to the clipboard as you will need it for the next step.
 
@@ -307,13 +307,13 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 <!-- 4. Ensure **Explorer** selected in the activity bar, right mouse click file named **Dockerfile** and select **Build Image**.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-docker-build.png)
+![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-docker-build.png)
 
 5. Give your docker build image a **unique name** - eg the first part of your email address, your nickname, something memorable, followed by **:latest**. The name needs to be unique otherwise it will clash with others building Docker images on the same Raspberry Pi.
 
     For example **glovebox:latest**
 
-![docker base image name](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/docker-build-name.png) -->
+![docker base image name](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/docker-build-name.png) -->
 
 ### Build and Run the Docker Image
 
@@ -331,13 +331,13 @@ There are two configuration files found in the .vscode folder that are responsib
         - With the cursor on that line, press F9, or,
         - With the cursor on that line, select the Debug > Toggle Breakpoint menu command, or, click directly in the margin to the left of the line number (a faded red dot appears when hovering there). The breakpoint appears as a red dot in the left margin:
 
-    ![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-set-breakpoint.png)
+    ![Attached debugger](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-set-breakpoint.png)
 
 ### Debug actions
 
 Once a debug session starts, the **Debug toolbar** will appear at the top of the editor window.
 
-![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/toolbar.png)
+![Debug Actions](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/toolbar.png)
 
 The debugger toolbar (shown above) will appear in Visual Studio Code. It has the following options:
 
@@ -353,7 +353,7 @@ The debugger toolbar (shown above) will appear in Visual Studio Code. It has the
 1. Press **F10**, or from the Debugger Toolbar, click **Step Over** until you are past the **print(telemetry)** line of code.
 2. Explore the **Variable Window** (Ctrl+Shift+Y). Try changing variable values.
 3. Explore the **Debug Console**. You will see sensor telemetry and the results of sending the telemetry to Azure IoT Central.
-    ![vs code debug console](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/vs-code-debug-console.png)
+    ![vs code debug console](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-debug-console.png)
 4. From the **Debug** Menu -> **Disable All Breakpoints**
 5. Press **F5** or from the Debugger Toolbar, click **Continue** so the Python application runs and streams telemetry to **Azure IoT Central**.
 
@@ -361,15 +361,15 @@ The debugger toolbar (shown above) will appear in Visual Studio Code. It has the
 
 1. Use **Device** to navigate to the **Measurements** page for the real Raspberry Pi device you added:
 
-    ![Navigate to real device](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-select-device.png)
+    ![Navigate to real device](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-select-device.png)
 
 1. On the **Measurements** page, you can see the telemetry streaming from the Raspberry Pi device:
 
-    ![View telemetry from real device](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/iot-central-view-telemetry.png)
+    ![View telemetry from real device](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-view-telemetry.png)
 
 ## Finished
 
- ![Complete. Congratulations](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/resources/congratulations.jpg)
+ ![Complete. Congratulations](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/congratulations.jpg)
 
 ## Appendix
 
@@ -480,13 +480,13 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 
 Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
 
-![Left navigation menu](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/navigationbar-description.png)
+![Left navigation menu](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/navigationbar-description.png)
 
 #### Search, help, and support
 
 The top menu appears on every page:
 
-![Toolbar](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/toolbar.png)
+![Toolbar](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/toolbar.png)
 
 - To search for device templates and devices, enter a **Search** value.
 - To change the UI language or theme, choose the **Settings** icon.
@@ -495,17 +495,17 @@ The top menu appears on every page:
 
 You can choose between a light theme or a dark theme for the UI:
 
-![Choose a theme for the UI](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/themes.png)
+![Choose a theme for the UI](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/themes.png)
 
 #### Dashboard
 
-![Dashboard](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/homepage.png)
+![Dashboard](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/homepage.png)
 
 The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-customize-operator?WT.mc_id=pycon-blog-dglover) tutorial. Users can also [create their own personal dashboards](https://docs.microsoft.com/en-us/azure/iot-central/howto-personalize-dashboard?WT.mc_id=pycon-blog-dglover).
 
 #### Device explorer
 
-![Explorer page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/explorer.png)
+![Explorer page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/explorer.png)
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_.
 
@@ -514,36 +514,36 @@ The explorer page shows the _devices_ in your Azure IoT Central application grou
 
 #### Device sets
 
-![Device Sets page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/devicesets.png)
+![Device Sets page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/devicesets.png)
 
 The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-use-device-sets?WT.mc_id=pycon-blog-dglover) article.
 
 #### Device Templates
 
-![Device Templates page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/templates.png)
+![Device Templates page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/templates.png)
 
 The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-define-device-type?WT.mc_id=pycon-blog-dglover) tutorial.
 
 #### Analytics
 
-![Analytics page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/analytics.png)
+![Analytics page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/analytics.png)
 
 The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-use-device-sets?WT.mc_id=pycon-blog-dglover) article.
 
 #### Jobs
 
-![Jobs page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/jobs.png)
+![Jobs page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/jobs.png)
 
 The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](https://docs.microsoft.com/en-us/azure/iot-central/howto-run-a-job?WT.mc_id=pycon-blog-dglover) article.
 
 #### Continuous Data Export
 
-![Continuous Data Export page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/export.png)
+![Continuous Data Export page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/export.png)
 
 The continuous data export page is where an administrator defines how to export data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/howto-export-data?WT.mc_id=pycon-blog-dglover) article.
 
 #### Administration
 
-![Administration page](https://raw.githubusercontent.com/gloveboxes/PyCon-Hands-on-Lab/master/Lab2-docker-debug/media/overview-iot-central-tour/administration.png)
+![Administration page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/overview-iot-central-tour/administration.png)
 
 The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-administer?WT.mc_id=pycon-blog-dglover) article.
