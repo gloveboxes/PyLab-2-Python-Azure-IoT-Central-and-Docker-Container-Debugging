@@ -234,7 +234,6 @@ You will be prompted for:
 
 <br/>
 
-
 ## Creating an Azure IoT Central Application
 
 We are going to create an Azure IoT Central application, then a device, and finally a device **connection string** needed for the application that will run in the Docker container.
