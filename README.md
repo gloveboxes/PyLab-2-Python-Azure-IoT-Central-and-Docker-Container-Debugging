@@ -113,7 +113,7 @@ You will be prompted for:
 - The Raspberry Pi Network IP Address,
 - The Raspberry Pi login name and password
 
-1. From **Windows File Explorer**, open **f<span>tp://\<Raspberry Pi Address>**
+1. From **Windows File Explorer**, open **ftp://\<Raspberry Pi Address>**
 
     <br>
 
@@ -232,7 +232,7 @@ You will be prompted for:
 
     <br/>
 4. Click **OK** to Open the directory
-5. From the **Explorer** bar, open the **app** folder, then the **app<span>.py** file, and review the contents
+5. From the **Explorer** bar, open the **app** folder, then the **app.py** file, and review the contents
     <br/>
 
     ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/vs-code-open-app-py.png)
@@ -460,7 +460,7 @@ Tasks integrate external tools to automate build cycle.
             "command": "sh",
             "args": [
                 "-c",
-                "\"docker build -t $USER:latest . ;docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file ~/github/Lab2-docker-debug/env-file --name $USER --rm  $USER:latest; sleep 1 \""
+                "\"docker build -t $USER:latest . ;docker run -d -p $LAB_PORT:3000 -e TELEMETRY_HOST=$LAB_HOST --env-file env-file --name $USER --rm  $USER:latest; sleep 1 \""
                 // -d Run container in background and print container ID,
                 // -p maps the $LAB_PORT to port 3000 in the container, this port is used for debugging,
                 // -e Environment Variable. The IP Address of the telemetry service.
