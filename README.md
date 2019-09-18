@@ -4,20 +4,6 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 ![banner](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/python-loves-vscode-raspberrypi-docker.png)
 
-## PDF Lab Guide
-
-You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf) hands-on lab guide.
-
-## PyLab Content
-
-- [PyLab 1: Raspberry Pi, Debugging a Python Internet of Things Application](https://gloveboxes.github.io/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/)
-- [PyLab 2: Raspberry Pi, Azure IoT Central, and Docker Container Debugging](https://gloveboxes.github.io/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/)
-
-## PyLab Set Up
-
-- [Multi-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-multiuser/README.md)
-- [Single-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/blob/master/Lab-setup-singleuser/README.md)
-
 |Author|[Dave Glover](https://developer.microsoft.com/en-us/advocates/dave-glover?WT.mc_id=pycon-blog-dglover), Microsoft Cloud Developer Advocate |
 |:--- |:--- |
 |Platforms | Linux, macOS, Windows, Raspbian Buster|
@@ -27,13 +13,32 @@ You may find it easier to download and follow the PDF version of the [Raspberry 
 |Language| Python|
 |Date|September, 2019|
 
+## PDF Lab Guide
+
+You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf) hands-on lab guide.
+
+## PyLab Content
+
+- [PyLab 1: Raspberry Pi, Debugging a Python Internet of Things Application](https://gloveboxes.github.io/PyLab-1-Debugging-a-Python-Internet-of-Things-Application/)
+- [PyLab 2: Raspberry Pi, Azure IoT Central, and Docker Container Debugging](https://gloveboxes.github.io/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/)
+
 ## Introduction
 
 In this hands-on lab, you will learn how to create a Python Internet of Things (IoT) application with [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=pycon-blog-dglover). Run the application  in a Docker Container on a Raspberry Pi, read temperature, humidity, and air pressure telemetry from a sensor, and finally debug the application running in the Docker Container.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi4-pi-sense-hat.jpg)
+## PyLab Set Up
 
+- [Single-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-singleuser/README.md)
 
+This automated set up installs the required libraies, Docker, and builds the lab docker images.
+
+![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi3aplus.png)
+
+- [Multi-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-multiuser/README.md)
+
+The Multi-user set up allows up to 20 users/students per Raspberry Pi 4 4GB. A USB3 SSD drive is required to support the disk IO requirements for this number of users. The installation script installs the lab content, and Docker. Builds the lab Docker Images, and sets up all the users.
+
+![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi4-ssd.png)
 
 <!-- ## CircuitPython
 
