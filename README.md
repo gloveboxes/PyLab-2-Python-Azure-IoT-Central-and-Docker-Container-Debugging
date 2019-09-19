@@ -15,7 +15,10 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 
 ## PDF Lab Guide
 
-You may find it easier to download and follow the PDF version of the [Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf) hands-on lab guide.
+You may find it easier to download and follow the PDF version of the **Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging** PyLab.
+
+- [English Lab Guide](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf)
+- [简体中文实验室指南](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/PyLab%202%20-%20Raspberry%20Pi%20Azure%20IoT%20Central%20and%20Docker%20Container%20Debugging_Chinese.pdf)
 
 ## PyLab Content
 
