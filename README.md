@@ -249,6 +249,12 @@ You will be prompted for:
 
 ## Creating an Azure IoT Central Application
 
+### What is Azure IoT Central
+
+Easily connect, monitor and manage your Internet of Things (IoT) assets at scale. [Azure IoT Central](https://azure.microsoft.com/en-in/services/iot-central/?WT.mc_id=pycon-blog-dglover) is a hosted, extensible software as a service (SaaS) platform that simplifies setup of your IoT solution and helps reduce the burden and costs of IoT management, operations and development. Provide customers superior products and service while expanding your business possibilities.
+
+![Azure IoT Central](resources/azure-iot.png)
+
 We are going to create an Azure IoT Central application, then a device, and finally a device **connection string** needed for the application that will run in the Docker container.
 
 ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/media/azure_iot_central.png)
@@ -349,6 +355,26 @@ We are going to create an Azure IoT Central application, then a device, and fina
     For example **glovebox:latest**
 
 ![docker base image name](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/docker-build-name.png) -->
+
+### How Debugging a Python App in a Docker Container Works
+
+- Each User Profile (\$USER) has a Unique (\$LAB_PORT) Environment Variable that is set when you log into the Raspberry Pi (.bashrc).
+- The follow happens when you start a Visual Studio Code Docker container debug session:
+
+    1. A Docker container named \$USER is built to include your Python Code (docker build)
+    2. Docker maps \$LAB_PORT to Port 3000 in the container (-p \$LAB_PORT:3000).
+    If you review the **.vscode/task.json** file you will see the Docker commands that run when you start the debugger.
+    3. The Docker Container is started (docker run –p \$LAB_PORT:3000)
+    4. One of the first lines of code in the **app.py** file is to start the _ptvsd_ (Python Tools for Visual Studio Debugger) debugger to listen on port 3000.
+
+        ```python
+        ptvsd.enable_attach(address=('0.0.0.0', 3000))
+        ```
+
+    5. Next the Visual Studio Code debugger attaches to \$LAB_PORT that is mapped through to port 3000. This is the port that the Visual Studio Python Debugger is listening on in the container. Review the **.vscode/launch.json** file to understand how the debugger attach works.
+    6. Now you can start stepping through the Python code, set breakpoints, inspect variables etc.
+
+![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/docker-debugging.png)
 
 ### Build and Run the Docker Image
 
