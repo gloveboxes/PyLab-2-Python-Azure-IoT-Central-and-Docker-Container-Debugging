@@ -1,5 +1,6 @@
 .git
 .ionide/*
+*.pdf
 README.*
 media
 resources

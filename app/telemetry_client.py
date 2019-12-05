@@ -18,14 +18,19 @@ class Telemetry():
     def measure(self):
         retry = 0
 
-        while retry < 2:
+        while retry < 4:
             try:
                 response = requests.get(self.telemetry_host)
-                telemetry = response.json()
-                break
+                if response.status_code == 200:
+                    telemetry = response.json()
+                    break
+                else:
+                    retry += 1
+                    time.sleep(retry)
             except:
                 print(sys.exc_info()[0])
                 retry += 1
+                time.sleep(retry)
 
         else:
             print('Error connecting to telemetry services')

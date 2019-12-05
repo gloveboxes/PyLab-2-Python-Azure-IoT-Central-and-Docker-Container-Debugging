@@ -4,7 +4,7 @@ RUN apk add --update alpine-sdk linux-headers
 
 RUN export PIP_DEFAULT_TIMEOUT=100 && \
     pip3 install --upgrade pip && pip3 install --upgrade setuptools && \
-    pip3 install ptvsd paho-mqtt requests
+    pip3 install ptvsd azure-iot-device requests
 
 # Add the application
 ADD app /app
