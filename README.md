@@ -18,7 +18,7 @@ Follow me on Twitter [@dglover](https://twitter.com/dglover)
 You may find it easier to download and follow the PDF version of the **Raspberry Pi, Python, Azure IoT Central, and Docker Container Debugging** PyLab.
 
 - [English Lab Guide](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/README.pdf)
-- [简体中文实验室指南](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/PyLab-2-Raspberry-Pi-Azure-IoT-Central-and-Docker-Container-Debugging_Chinese.pdf)
+<!-- - [简体中文实验室指南](https://github.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/blob/master/PyLab-2-Raspberry-Pi-Azure-IoT-Central-and-Docker-Container-Debugging_Chinese.pdf) -->
 
 ## PyLab Content
 
@@ -37,7 +37,9 @@ This automated set up installs the required libraries, Docker, and builds the la
 
 ![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi3aplus.png) -->
 
-- [Multi-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-multiuser/README.md)
+### Multi-User Set Up
+
+[Multi-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-multiuser/README.md)
 
 The Multi-user set up allows up to 20 users/students per Raspberry Pi 4 4GB. A USB3 SSD or fast Flash drive is required to support the disk IO requirements for this number of users. The installation script installs the lab content, and Docker. Builds the lab Docker Images, and sets up all the users.
 
