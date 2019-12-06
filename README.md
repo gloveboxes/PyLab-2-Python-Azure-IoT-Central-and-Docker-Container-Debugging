@@ -31,17 +31,17 @@ In this hands-on lab, you will learn how to create a Python Internet of Things (
 
 ## PyLab Set Up
 
-- [Single-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-singleuser/README.md)
+<!-- - [Single-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-singleuser/README.md)
 
-This automated set up installs the required libraies, Docker, and builds the lab docker images.
+This automated set up installs the required libraries, Docker, and builds the lab docker images.
 
-![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi3aplus.png)
+![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi3aplus.png) -->
 
 - [Multi-User Set Up](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up/tree/master/setup-multiuser/README.md)
 
 The Multi-user set up allows up to 20 users/students per Raspberry Pi 4 4GB. A USB3 SSD drive is required to support the disk IO requirements for this number of users. The installation script installs the lab content, and Docker. Builds the lab Docker Images, and sets up all the users.
 
-![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/rpi4-ssd.png)
+![Raspberry Pi with SSD](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-hol-banner.png)
 
 <!-- ## CircuitPython
 
