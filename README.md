@@ -288,15 +288,15 @@ Specify **Application name**, **URL**, enable **7 day free trial**, and complete
 1. Add new Device Template
 
     Click **Device templates"
-<br/>
+
     ![](resources/iot-central-device-template.png)
-<br/>
+
 2. Select **IoT device** template type
-<br/>
+
     ![](resources/iot-central-new-iot-device-template.png)
-<br/>
+
 3. Create an **IoT Device** Template
-<br/>
+
     1. Select **IoT device**, 
     2. Click **Next:Customise**, 
     3. Click **Next: Review**, 
@@ -311,29 +311,25 @@ Specify **Application name**, **URL**, enable **7 day free trial**, and complete
     1. Click **Custom**, 
     2. Click the **+** symbol to add an **Interface**. 
     3. Choose **Custom** interface.
-<br/>
 
     ![](resources/iot-central-capability-model.png)
-<br/>
+
 2. Add Capabilities
-<br/>
+
     ![](resources/iot-central-add-capability.png)
-<br/>
+
     Click **<** (Collapse) to create more working space.
-<br/>
+
 3. Add **Humidity** Capability
     1. Click **+** to Add capability.
     1. Add **Humidity** Telemetry Capability
     2. Set the Unit to **%**
-<br/>
+
     ![](resources/iot-central-add-capability-humidity.png)
-<br/>
 
 4. Add **Temperature** and **Pressure** Capabilities
-<br/>
 
     ![](resources/iot-central-add-temperature-humidity.png)
-<br/>
 
 4. Save the Capabilities
 
@@ -345,9 +341,9 @@ Specify **Application name**, **URL**, enable **7 day free trial**, and complete
 2. Click **Generate default views**
 3. Click **Generate default dashboard view(s)**
 4. You can customize the default view later.
-    <br/>
+
     ![](resources/iot-central-create-view.png)
-    <br/>
+
 #### Publish the Template
 
 Click **Publish** to activate the template.
@@ -358,13 +354,13 @@ Click **Publish** to activate the template.
 
 1. Select Devices from IoT Central **Side Bar** menu
 2. Select the Template you just created
-<br/>
+
     ![](resources/iot-central-add-device.png)
-<br/>
+
 3. Click **+** to add a new device
-<br/>
+
     ![](resources/iot-central-create-device.png)
-<br/>
+
 1. Set the Device ID and the Display name
 2. Click **Create**
 
@@ -373,16 +369,16 @@ Click **Publish** to activate the template.
 
 1. Select the newly created device
 2. Click **Approve**
-<br/>
+
     ![](resources/iot-central-device-approve.png)
-<br/>
+
 
 ### Connect the Device
 
 When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
-<br/>
+
 ![](resources/iot-central-connect.png)
-<br/>    
+    
 **Leave this page open as you will need this connection information for the next step in the hands-on lab.**
 
 ![Device Connection](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-device-connection.png)
