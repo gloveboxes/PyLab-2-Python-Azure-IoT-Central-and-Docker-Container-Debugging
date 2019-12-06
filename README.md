@@ -287,7 +287,7 @@ Specify **Application name**, **URL**, enable **7 day free trial**, and complete
 
 1. Add new Device Template
 
-    Click **Device templates"
+    Click **Device templates**
 
     ![](resources/iot-central-device-template.png)
 
