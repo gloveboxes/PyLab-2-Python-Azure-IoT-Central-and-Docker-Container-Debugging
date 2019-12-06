@@ -273,12 +273,12 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 4. Select **Build as app**
 
-![](resources/iot-central-build-first-app.png)
+    ![](resources/iot-central-build-first-app.png)
 
 5. Select **Custom app**
-<br/>
+
     ![](resources/iot-central-custom-app.png)
-<br/>
+
 ### Create a **New application**
 
 Specify **Application name**, **URL**, enable **7 day free trial**, and complete the registration form. Then click **Create**.
