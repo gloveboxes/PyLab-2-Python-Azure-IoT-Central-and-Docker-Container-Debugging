@@ -7,26 +7,32 @@ import telemetry_client
 import os
 import asyncio
 from azure.iot.device.aio import IoTHubDeviceClient
+import DeviceProvisionService as dps
 
 
 ptvsd.enable_attach(address=('0.0.0.0', 3000))
 
 try:
-    connectionString = os.environ['CONNECTION_STRING']
+    scope = os.environ['SCOPE']
+    device_id = os.environ['DEVICE_ID']
+    key = os.environ['KEY']
 except:
-    print("Missing Connection String")
+    print("Missing Scope, Device Id, or Key environment variable")
     sys.exit(1)
 
-if connectionString == '':
-    print("Missing Connection String")
+if not scope or not device_id or not key:
+    print("Missing Scope, Device Id, or Key environment variable")
     sys.exit(1)
 
 sampleRateInSeconds = 6
 mysensor = telemetry_client.Telemetry()
+device = dps.Device(scope, device_id, key)
 
 
 async def main():
-    global connectionString, sampleRateInSeconds
+    global device, sampleRateInSeconds
+
+    connectionString = await device.connection_string
     device_client = IoTHubDeviceClient.create_from_connection_string(
         connectionString)
     await device_client.connect()

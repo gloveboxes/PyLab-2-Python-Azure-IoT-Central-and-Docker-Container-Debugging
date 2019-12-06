@@ -1,6 +1,6 @@
 FROM python:3.7-alpine
 
-RUN apk add --update alpine-sdk linux-headers
+RUN apk add --update alpine-sdk linux-headers boost-python3
 
 RUN export PIP_DEFAULT_TIMEOUT=100 && \
     pip3 install --upgrade pip && pip3 install --upgrade setuptools && \
