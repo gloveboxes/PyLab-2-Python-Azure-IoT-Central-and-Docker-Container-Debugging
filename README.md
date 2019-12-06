@@ -346,7 +346,7 @@ Specify **Application name**, **URL**, enable **7 day free trial**, and complete
 
 #### Publish the Template
 
-Click **Publish** to activate the template.
+Click **Publish** to activate the template, the click **Publish**.
 
 ![](resources/iot-central-publish-template.png)
 
@@ -390,7 +390,7 @@ When you have created your real device click the **Connect** button in the top r
 
 2. Paste the Scope ID, Device ID, and Primary Key into the env-file.
     <br/>
-    For example:
+    For example (don't use the fake values in the example):
 
     ```text
     SCOPE=0ne00012345
