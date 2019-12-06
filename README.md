@@ -269,79 +269,135 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 3. Create a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
 
-4. Select **Trail**, **Custom application**, name your IoT Central application and complete the sign-up information.
+4. Select **Build as app**
+<br/>
+    ![](resources/iot-central-build-first-app.png)
+<br/>
+5. Select **Custom app**
+<br/>
+    ![](resources/iot-central-custom-app.png)
+<br/>
+### Create a **New application**
 
-![Azure IoT Central Create Application page](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-new-application.png)
+Specify **Application name**, **URL**, enable **7 day free trial**, and complete the registration form. Then click **Create**.
 
-4. Click **Create Device Templates**, then select the **Custom** template, name your template, for example, **Raspberry**. Then click Create
+![](resources/iot-central-new-application.png)
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-welcome-dashboard.png)
+1. Add new Device Template
 
-5. Edit the Template, add **Measurements** for **Temperature**, **Humidity**, and **Pressure** telemetry.
+    Click **Device templates"
+<br/>
+    ![](resources/iot-central-device-template.png)
+<br/>
+2. Select **IoT device** template type
+<br/>
+    ![](resources/iot-central-new-iot-device-template.png)
+<br/>
+3. Create an **IoT Device** Template
+<br/>
+    1. Select **IoT device**, 
+    2. Click **Next:Customise**, 
+    3. Click **Next: Review**, 
+    4. Click **Create**.
+    5. Name your template, and press **Enter**
 
-    Measurements are the data that comes from your device. You can add multiple measurements to your device template to match the capabilities of your device.
 
-    - **Telemetry** measurements are the numerical data points that your device collects over time. They're represented as a continuous stream. An example is temperature.
-    - **Event** measurements are point-in-time data that represents something of significance on the device. A severity level represents the importance of an event. An example is a fan motor error.
-    - **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having Operating and Stopped as the two possible states.
-    - **Location** measurements are the longitude and latitude coordinates of the device over a period of time in. For example, a fan can be moved from one location to another.
+#### Create a Capability Model
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-new-telemetry.png)
+1. Add an Interface
 
-    Use the information in the following table to set up three telemetry measurements. The field name is case-sensitive.
+    1. Click **Custom**, 
+    2. Click the **+** symbol to add an **Interface**. 
+    3. Choose **Custom** interface.
+<br/>
 
-    You **must** click **Save** after each measurement is defined.
+    ![](resources/iot-central-capability-model.png)
+<br/>
+2. Add Capabilities
+<br/>
+    ![](resources/iot-central-add-capability.png)
+<br/>
+    Click **<** (Collapse) to create more working space.
+<br/>
+3. Add **Humidity** Capability
+    1. Click **+** to Add capability.
+    1. Add **Humidity** Telemetry Capability
+    2. Set the Unit to **%**
+<br/>
+    ![](resources/iot-central-add-capability-humidity.png)
+<br/>
 
-    |Display Name| Field name     | Units  | Minimum | Maximum | Decimals |
-    |------------| -------------- | ------ | ------- | ------- | -------- |
-    |Humidity    | Humidity       | %      | 0       | 100     | 0        |
-    |Temperature | Temperature    | degC   | -10     | 60      | 0        |
-    |Pressure    | Pressure       | hPa    | 800     | 1260    | 0        |
+4. Add **Temperature** and **Pressure** Capabilities
+<br/>
 
-    The following is an example of setting up the **Temperature** telemetry measurement.
+    ![](resources/iot-central-add-temperature-humidity.png)
+<br/>
 
-    ![new measurement](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-create-new-telemetry.png)
+4. Save the Capabilities
 
-6. Click **Device** on the sidebar menu, select the **Raspberry** template you created.
+    Click **Save** to save the capabilities model.
 
-    IoT central supports real devices, such as the Raspberry Pi used for this lab, as well as simulated devices which generate random data  useful for system testing.
+#### Create a Device Template View
 
-7. Select **Real**.
+1. Click **Views**
+2. Click **Generate default views**
+3. Click **Generate default dashboard view(s)**
+4. You can customize the default view later.
+    <br/>
+    ![](resources/iot-central-create-view.png)
+    <br/>
+#### Publish the Template
 
-    ![create a real device](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-add-real-device.png)
+Click **Publish** to activate the template.
 
-    Name your **Device ID** so you can easily identify the device in the IoT Central portal, then click **Create**.
+![](resources/iot-central-publish-template.png)
 
-    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-create-new-device.png)
+### Create a new device
 
-7. When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
+1. Select Devices from IoT Central **Side Bar** menu
+2. Select the Template you just created
+<br/>
+    ![](resources/iot-central-add-device.png)
+<br/>
+3. Click **+** to add a new device
+<br/>
+    ![](resources/iot-central-create-device.png)
+<br/>
+1. Set the Device ID and the Display name
+2. Click **Create**
 
-    ![connect device](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-connect-device.png)
 
-    **Leave this page open as you will need this connection information for the next step in the hands-on lab.**
+#### Approve the device
 
-    ![Device Connection](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-device-connection.png)
+1. Select the newly created device
+2. Click **Approve**
+<br/>
+    ![](resources/iot-central-device-approve.png)
+<br/>
 
-## Generate an Azure IoT Hub Connection String
+### Connect the Device
 
-1. Hold the control key down and click the following link [Connection String Generator](https://dpsgen.z8.web.core.windows.net/) to open in a new tab.
+When you have created your real device click the **Connect** button in the top right-hand corner of the screen to display the device credentials.
+<br/>
+![](resources/iot-central-connect.png)
+<br/>    
+**Leave this page open as you will need this connection information for the next step in the hands-on lab.**
 
-    Copy and paste the **Scope Id**, **Device Id**, and the **Primary Key** from the Azure IoT Central Device Connection panel to the Connection String Generator page and click **Get Connection String**.
+![Device Connection](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-device-connection.png)
 
-    ![connection string example](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-central-connection-string-generator-example.png)
-
-2. Copy the generated connection string to the clipboard as you will need it for the next step.
 
 ## Configure the Python Application
 
 1. Switch back to Visual Studio Code. Open the **env-file** (environment file). This file contains environment variables that will be passed to the Docker container.
 
-2. Paste the connection string you copied in the previous step into the env-file on the same line, and after  **CONNECTION_STRING=**.
-
+2. Paste the Scope ID, Device ID, and Primary Key into the env-file.
+    <br/>
     For example:
 
     ```text
-    CONNECTION_STRING=HostName=saas-iothub-8135cd3b....
+    SCOPE=0ne00012345
+    DEVICE_ID=rpi-device
+    KEY=dB0g7hikas9isvYfYkqCofRpFl7VoXCGuuNOvCa1aK8=
     ```
 
 3. Save the env-file file (Ctrl+S)
@@ -358,7 +414,7 @@ We are going to create an Azure IoT Central application, then a device, and fina
 
 ### How Debugging a Python App in a Docker Container Works
 
-- Each User Profile (\$USER) has a Unique (\$LAB_PORT) Environment Variable that is set when you log into the Raspberry Pi (.bashrc).
+- Each User Profile (**\$USER**) has a Unique (**\$LAB_PORT**) Environment Variable that is set when you log into the Raspberry Pi (.bashrc).
 - The follow happens when you start a Visual Studio Code Docker container debug session:
 
     1. A Docker container named \$USER is built to include your Python Code (docker build)
@@ -374,7 +430,7 @@ We are going to create an Azure IoT Central application, then a device, and fina
     5. Next the Visual Studio Code debugger attaches to \$LAB_PORT that is mapped through to port 3000. This is the port that the Visual Studio Python Debugger is listening on in the container. Review the **.vscode/launch.json** file to understand how the debugger attach works.
     6. Now you can start stepping through the Python code, set breakpoints, inspect variables etc.
 
-![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/docker-debugging.png)
+    ![](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/docker-debugging.png)
 
 ### Build and Run the Docker Image
 
