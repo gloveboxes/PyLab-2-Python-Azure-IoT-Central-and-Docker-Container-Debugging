@@ -41,7 +41,7 @@ This automated set up installs the required libraries, Docker, and builds the la
 
 The Multi-user set up allows up to 20 users/students per Raspberry Pi 4 4GB. A USB3 SSD or fast Flash drive is required to support the disk IO requirements for this number of users. The installation script installs the lab content, and Docker. Builds the lab Docker Images, and sets up all the users.
 
-![Raspberry Pi 4B 4GB](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/iot-hol-banner.png)
+![Raspberry Pi 4B 4GB](https://raw.githubusercontent.com/gloveboxes/PyLab-2-Python-Azure-IoT-Central-and-Docker-Container-Debugging/master/resources/pylab-rpi4b4gb.png)
 
 <!-- ## CircuitPython
 
