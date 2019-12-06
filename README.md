@@ -390,8 +390,6 @@ When you have created your real device click the **Connect** button in the top r
 
 2. Paste the Scope ID, Device ID, and Primary Key into the env-file.
 
-    <br/>
-
     For example (don't try to use the sample values in the example as they will not work):
 
     ```text
