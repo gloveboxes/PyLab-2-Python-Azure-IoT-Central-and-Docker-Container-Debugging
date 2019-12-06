@@ -389,8 +389,10 @@ When you have created your real device click the **Connect** button in the top r
 1. Switch back to Visual Studio Code. Open the **env-file** (environment file). This file contains environment variables that will be passed to the Docker container.
 
 2. Paste the Scope ID, Device ID, and Primary Key into the env-file.
+
     <br/>
-    For example (don't use the fake values in the example):
+
+    For example (don't try to use the sample values in the example as they will not work):
 
     ```text
     SCOPE=0ne00012345
